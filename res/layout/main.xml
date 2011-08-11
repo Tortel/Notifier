@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<Button
+	android:id="@+id/prefsButton"
+	android:text="Prefrences"
+	android:layout_width="wrap_content"
+	android:layout_height="60dip"
+	android:gravity="center"
+	/>
+<Button
+	android:id="@+id/viewEntriesButton"
+	android:text="View Custom Entires"
+	android:layout_width="wrap_content"
+	android:layout_height="60dip"
+	android:gravity="center"
+	/>
+<Button
+	android:id="@+id/stopButton"
+	android:text="Stop Service"
+	android:layout_width="wrap_content"
+	android:layout_height="60dip"
+	android:gravity="center"
+	/>
+<Button
+	android:id="@+id/startButton"
+	android:text="Start Service"
+	android:layout_width="wrap_content"
+	android:layout_height="60dip"
+	android:gravity="center"
+	/>
+</LinearLayout>

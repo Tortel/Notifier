@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:stretchColumns="*"
+    >
+    <TableRow 
+    	android:layout_margin="2dip">
+        <TextView
+        	android:id="@+id/contactName"
+        	android:paddingLeft="2px"
+			android:paddingRight="2px"
+			android:paddingTop="2px"
+			android:layout_width="wrap_content"
+        	android:text="Contact Name Here"
+        	android:gravity="left"
+        	/>
+        <ImageView
+        	android:id="@+id/contactIcon"
+        	android:gravity="right"
+        	android:paddingRight="2px"
+        	android:paddingTop="2px"
+        	android:paddingBottom="2px"
+        	android:paddingLeft="2px"
+        	/>
+        
+    </TableRow>
+    
+</TableLayout>
+

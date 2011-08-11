@@ -1,0 +1,52 @@
+
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="Defaults">
+		<CheckBoxPreference
+			android:title="Enable"
+			android:summary="Enable message notifications"
+			android:defaultValue="true"
+			android:key="enabled"/>
+		<RingtonePreference
+			android:key="ringtone"
+			android:title="Ringtone"
+			android:showDefault="true"
+			android:showSilent="true"
+			android:defaultValue="DEFAULT_NOTIFICATION_URI"
+			android:ringtoneType="notification"
+			android:summary="Message notification ringtone"
+			/>
+		<CheckBoxPreference
+			android:title="Vibrate"
+			android:summary="Vibrate on new message"
+			android:defaultValue="true"
+			android:key="vibrate"/>
+		<ListPreference
+			android:key="defColor"
+			android:title="Default Color"
+			android:summary="Choose the default icon color"
+			android:defaultValue="0"
+			android:entries="@array/colors"
+			android:entryValues="@array/colorNum"
+			android:dialogTitle="Choose a default color"
+			/>
+		<ListPreference
+			android:key="ledColor"
+			android:title="LED Color"
+			android:summary="Notification LED color"
+			android:defaultValue="0"
+			android:entries="@array/ledColor"
+			android:entryValues="@array/ledColorNum"
+			android:dialogTitle="Choose a color"
+			/>
+		<ListPreference
+			android:key="ledPat"
+			android:title="Led Speed"
+			android:summary="Notification LED Blink Speed"
+			android:defaultValue="1"
+			android:entries="@array/blinkSpeed"
+			android:entryValues="@array/blinkNum"
+			android:dialogTitle="Choose a speed"
+			/>
+	</PreferenceCategory>
+</PreferenceScreen>
