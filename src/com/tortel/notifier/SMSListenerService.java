@@ -22,7 +22,7 @@ import android.telephony.SmsMessage;
 /**
  * What's left:
  * Fix MMS !!!!!!!!!!!!!!
- * Catch failed messages - Problem is with broadcastreceiver
+ * Catch failed messages - Probably not possible without actually checking for failed messages
  * Fix assorted (now unknown) bugs
  * Actually log shit.
  * 
@@ -242,6 +242,7 @@ public class SMSListenerService extends Service {
 		{
 			String body="";
 			String sender="";
+			long time = System.currentTimeMillis();
 			Object[] pdus = (Object[])bundle.get("pdus");
 			SmsMessage[] messages = new SmsMessage[pdus.length];
 			for(int i = 0; i<pdus.length; i++)
@@ -252,9 +253,10 @@ public class SMSListenerService extends Service {
 			for(SmsMessage message: messages){
 				sender = message.getOriginatingAddress();
 				body = message.getMessageBody();
+				time = message.getTimestampMillis();
 			}
 			Log.v("Message from "+sender);
-			smsNotification(body,sender);
+			smsNotification(body,sender, time);
 		}
     }
     
@@ -280,7 +282,7 @@ public class SMSListenerService extends Service {
 	 * @param body the message body
 	 * @param sender the sender's raw address
 	 */
-	private void smsNotification(String body, String sender){
+	private void smsNotification(String body, String sender, long time){
 		//Get extra details
 		Contact contact = Utils.lookupContact(sender, this);
 		int count = Utils.getUnreadCount(this, body);
@@ -291,7 +293,7 @@ public class SMSListenerService extends Service {
 		
 		//Make the notification
 		NotificationManager mgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-		Notification note = new Notification(contact.icon,contact.name+": "+body,System.currentTimeMillis());
+		Notification note = new Notification(contact.icon,contact.name+": "+body,time);
 		Log.v("Notification from "+contact.name+" with thread id "+contact.threadId);
 
 		if(count <= 1){
