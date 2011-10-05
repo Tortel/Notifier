@@ -1,5 +1,7 @@
 package com.tortel.notifier;
 
+import java.util.TimeZone;
+
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -254,6 +256,7 @@ public class SMSListenerService extends Service {
 				sender = message.getOriginatingAddress();
 				body = message.getMessageBody();
 				time = message.getTimestampMillis();
+				time = time - TimeZone.getDefault().getOffset(time);
 			}
 			Log.v("Message from "+sender);
 			smsNotification(body,sender, time);
