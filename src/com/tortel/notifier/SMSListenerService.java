@@ -258,7 +258,7 @@ public class SMSListenerService extends Service {
 				time = message.getTimestampMillis();
 				time = time - TimeZone.getDefault().getOffset(time);
 			}
-			Log.v("Message from "+sender);
+			//Log.v("Message from "+sender);
 			smsNotification(body,sender, time);
 		}
     }
@@ -297,7 +297,7 @@ public class SMSListenerService extends Service {
 		//Make the notification
 		NotificationManager mgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		Notification note = new Notification(contact.icon,contact.name+": "+body,time);
-		Log.v("Notification from "+contact.name+" with thread id "+contact.threadId);
+		//Log.v("Notification from "+contact.name+" with thread id "+contact.threadId);
 
 		if(count <= 1){
 			Log.v("One unread message");
